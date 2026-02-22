@@ -1,5 +1,6 @@
 import { createContext, useReducer} from "react";
 import githubReducer from "./GithubReducer";
+import { type } from "@testing-library/user-event/dist/type";
 
 const GithubContext = createContext()
 
@@ -14,8 +15,9 @@ export const GithubProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(githubReducer, initialState)
 
+    //get initial users (testing)
          const fetchUsers = async () => {
-        dispatch({ type: 'SET_LOADING', payload: true })
+        setLoading( )
         try {
             const response = await fetch(`${GITHUB_URL}/users`,{
                 headers: {
@@ -32,6 +34,9 @@ export const GithubProvider = ({children}) => {
            })
         }
     }
+
+const setLoading = () => dispatch({type: 'SET_LOADING'})
+
     return <GithubContext.Provider value={
         {users: state.users, loading: state.loading, fetchUsers}
     }>
