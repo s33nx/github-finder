@@ -1,11 +1,15 @@
-import { type } from "@testing-library/user-event/dist/type";
-
 const githubReducer = (state, action) => {
     switch (action.type){
         case 'GET_USERS':
             return {
                 ...state,
                 users: action.payload,
+                loading: false
+            }
+        case 'CLEAR_USERS':
+            return {
+                ...state,
+                users: [],
                 loading: false
             }
         case 'SET_LOADING':

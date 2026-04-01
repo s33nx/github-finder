@@ -2,8 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layouts/Navbar';
 import Home from './pages/Home';
-import about from './pages/About';
-import notFound from './pages/NotFound';
 import Footer from './components/layouts/Footer';
 import About from './pages/About';
 import { GithubProvider } from './context/github/GithubContext';
